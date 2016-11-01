@@ -1,2 +1,12 @@
 <h1>New author</h1>
-<p>Find me in app/views/authors/new.html.erb</p>
+
+<%= form_tag do %>
+    <%= label_tag(:first_name, "First name") %><br>
+    <%= text_field_tag(:first_name) %><br>
+    <br>
+    <%= label_tag(:last_name, "Last name") %><br>
+    <%= text_field_tag(:last_name) %><br>
+    <br>
+    <%= label_tag(:homepage, "Homepage") %><br>
+    <%= text_field_tag(:homepage) %>
+<% end %>
