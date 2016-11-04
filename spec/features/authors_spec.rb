@@ -9,7 +9,9 @@ describe "Authors page", :type => :feature do
 
   it 'should have text input for first name, last name, and homepage' do
     visit new_author_path
-    expect(page).to have_field("first_name")
+    expect(page).to have_field("author_first_name")
+    expect(page).to have_field("author_last_name")
+    expect(page).to have_field("author_homepage")
   end
 
   it 'should have a "Create Author" button' do
