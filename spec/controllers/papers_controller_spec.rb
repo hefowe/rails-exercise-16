@@ -56,4 +56,12 @@ describe PapersController, :type => :feature do
     expect(page).to have_text("Title can't be blank")
   end
 
+  it 'should render edit route' do
+    paper = create(:paper)
+
+    visit edit_paper_path(id: paper.id)
+
+    expect(page).to have_text("Editing paper")
+  end
+
 end
