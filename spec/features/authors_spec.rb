@@ -67,4 +67,12 @@ describe "Authors page", :type => :feature do
 
     expect(page).to have_text("Last name can't be blank")
   end
+
+  it 'should render edit route' do
+    create(:author)
+
+    visit edit_author_path(id: "1")
+
+    expect(page).to have_text("Editing author")
+  end
 end
