@@ -34,4 +34,10 @@ describe Paper, :type => :feature do
     expect(paper).to_not be_valid
   end
 
+  it 'should have and belong to many authors' do
+    paper = create(:paper)
+
+    expect(paper.authors).not_to be_empty
+  end
+
 end
