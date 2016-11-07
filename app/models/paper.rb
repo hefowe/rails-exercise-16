@@ -4,6 +4,8 @@ class Paper < ActiveRecord::Base
   validates :venue, presence: true
   validates :year, presence: true, numericality: { only_integer: true }
 
-  @authors = []
+  after_initialize do |paper|
+    paper.authors = []
+  end
 
 end
