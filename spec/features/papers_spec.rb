@@ -10,4 +10,10 @@ describe Paper, :type => :feature do
     expect(paper.year).to eq 1950
   end
 
+  it 'should not validate without title' do
+    paper = create(:paper)
+    paper.title = nil
+    expect(paper).to_not be_valid
+  end
+
 end
