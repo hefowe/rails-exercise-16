@@ -23,4 +23,10 @@ describe Author, :type => :feature do
 
     expect(author.name).to eq "Alan Turing"
   end
+
+  it 'should not validate without last name' do
+    alan = create(:author)
+    alan.last_name = nil
+    expect(alan).to_not be_valid
+  end
 end
