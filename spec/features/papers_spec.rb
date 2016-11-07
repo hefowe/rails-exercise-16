@@ -7,7 +7,7 @@ describe Paper, :type => :feature do
 
     expect(paper.title).to eq "COMPUTING MACHINERY AND INTELLIGENCE"
     expect(paper.venue).to eq "Mind 49: 433-460"
-    expect(paper.year).to eq "1950"
+    expect(paper.year).to eq 1950
   end
 
 end
