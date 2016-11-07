@@ -31,14 +31,9 @@ describe "Authors page", :type => :feature do
   end
 
   it 'should display author details' do
-    visit new_author_path
+    create(:author)
 
-    fill_in 'author_first_name', with: 'Alan'
-    fill_in 'author_last_name', with: 'Turing'
-    fill_in 'author_homepage', with: 'http://wikipedia.org/Alan_Turing'
-    submit_form
-
-    expect(alan = Author.where(first_name: "Alan", last_name: "Turing")).to exist
+    visit authors_path + "/1"
 
     expect(page).to have_text("First name: Alan")
     expect(page).to have_text("Last name: Turing")
@@ -56,12 +51,7 @@ describe "Authors page", :type => :feature do
   end
 
   it 'should link to author page on the index route' do
-    visit new_author_path
-
-    fill_in 'author_first_name', with: 'Alan'
-    fill_in 'author_last_name', with: 'Turing'
-    fill_in 'author_homepage', with: 'http://wikipedia.org/Alan_Turing'
-    submit_form
+    create(:author)
 
     visit authors_path
     expect(page).to have_css("a", :text => "Show")
