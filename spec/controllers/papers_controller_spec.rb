@@ -82,4 +82,11 @@ describe PapersController, :type => :feature do
     expect(page).to have_css("a", :text => "Edit")
   end
 
+  it 'should have a link to delete an paper on the index route' do
+    create(:paper)
+
+    visit papers_path
+    expect(page).to have_css("a", :text => "Destroy")
+  end
+
 end
