@@ -28,4 +28,10 @@ describe Paper, :type => :feature do
     expect(paper).to_not be_valid
   end
 
+  it 'should not validate with non-integer year' do
+    paper = create(:paper)
+    paper.year = "nineteen-fifty"
+    expect(paper).to_not be_valid
+  end
+
 end
