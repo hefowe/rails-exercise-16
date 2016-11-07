@@ -57,7 +57,7 @@ describe AuthorsController, :type => :feature do
     expect(page).to have_css("a", :text => "Show")
   end
 
-  it 'should save the author' do
+  it 'should show validation errors' do
     visit new_author_path
 
     fill_in 'author_first_name', with: 'Alan'
