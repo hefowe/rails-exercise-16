@@ -41,5 +41,6 @@ describe "Authors page", :type => :feature do
     expect(alan = Author.where(first_name: "Alan", last_name: "Turing")).to exist
 
     expect(page).to have_text("First name: Alan")
+    expect(page).to have_text("Last name: Turing")
   end
 end
