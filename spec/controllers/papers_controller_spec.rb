@@ -12,4 +12,9 @@ describe PapersController, :type => :feature do
     expect(page).to have_field("paper_venue")
     expect(page).to have_field("paper_year")
   end
+
+  it 'should have a submit button' do
+    visit new_paper_path
+    expect(page).to have_button("Create Paper")
+  end
 end
