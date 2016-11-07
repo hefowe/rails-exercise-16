@@ -17,4 +17,15 @@ describe PapersController, :type => :feature do
     visit new_paper_path
     expect(page).to have_button("Create Paper")
   end
+
+  it 'should display paper details' do
+    create(:paper)
+
+    visit papers_path + "/1"
+
+    expect(page).to have_text("Title: COMPUTING MACHINERY AND INTELLIGENCE")
+    expect(page).to have_text("Venue: Mind 49: 433-460")
+    expect(page).to have_text("Year: 1950")
+  end
+
 end
