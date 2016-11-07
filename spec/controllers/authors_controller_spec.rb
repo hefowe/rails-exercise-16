@@ -99,6 +99,7 @@ describe AuthorsController, :type => :feature do
 
     visit authors_path
     expect(page).to have_css("a", :text => "Destroy")
+    click_link("Destroy")
   end
 
 end
