@@ -64,4 +64,15 @@ describe PapersController, :type => :feature do
     expect(page).to have_text("Editing paper")
   end
 
+  it 'should save changes on edit paper page' do
+    paper = create(:paper)
+
+    visit edit_paper_path(id: paper.id)
+
+    fill_in 'paper_venue', with: 'Mind 49'
+    submit_form
+
+    expect(page).to have_text("Venue: Mind 49")
+  end
+
 end
