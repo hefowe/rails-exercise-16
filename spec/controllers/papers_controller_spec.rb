@@ -75,4 +75,11 @@ describe PapersController, :type => :feature do
     expect(page).to have_text("Venue: Mind 49")
   end
 
+  it 'should link to edit paper page on the index route' do
+    create(:paper)
+
+    visit papers_path
+    expect(page).to have_css("a", :text => "Edit")
+  end
+
 end
