@@ -83,6 +83,8 @@ describe AuthorsController, :type => :feature do
 
     fill_in 'author_first_name', with: 'Alan Mathison'
     submit_form
+
+    expect(page).to have_text("First name: Alan Mathison")
   end
 
   it 'should link to edit author page on the index route' do
