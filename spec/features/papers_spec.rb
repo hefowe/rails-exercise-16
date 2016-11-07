@@ -22,4 +22,10 @@ describe Paper, :type => :feature do
     expect(paper).to_not be_valid
   end
 
+  it 'should not validate without year' do
+    paper = create(:paper)
+    paper.year = nil
+    expect(paper).to_not be_valid
+  end
+
 end
