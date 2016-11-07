@@ -56,4 +56,15 @@ describe "Authors page", :type => :feature do
     visit authors_path
     expect(page).to have_css("a", :text => "Show")
   end
+
+  it 'should save the author' do
+    visit new_author_path
+
+    fill_in 'author_first_name', with: 'Alan'
+    fill_in 'author_last_name', with: ''
+    fill_in 'author_homepage', with: 'http://wikipedia.org/Alan_Turing'
+    submit_form
+
+    expect(page).to have_text("Last name can't be blank")
+  end
 end
