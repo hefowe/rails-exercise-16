@@ -6,4 +6,5 @@ describe "Index page", :type => :feature do
     visit root_path
     expect(page).to have_text("Paper Management System")
   end
+
 end
