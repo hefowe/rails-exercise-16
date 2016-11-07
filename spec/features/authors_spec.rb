@@ -91,4 +91,11 @@ describe "Authors page", :type => :feature do
     visit authors_path
     expect(page).to have_css("a", :text => "Edit")
   end
+
+  it 'should have a link to delete an author on the index route' do
+    create(:author)
+
+    visit authors_path
+    expect(page).to have_css("a", :text => "Destroy")
+  end
 end
