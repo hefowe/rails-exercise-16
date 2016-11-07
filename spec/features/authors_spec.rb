@@ -75,4 +75,13 @@ describe "Authors page", :type => :feature do
 
     expect(page).to have_text("Editing author")
   end
+
+  it 'should save changes on edit author page' do
+    create(:author)
+
+    visit edit_author_path(id: "1")
+
+    fill_in 'author_first_name', with: 'Alan Mathison'
+    submit_form
+  end
 end
