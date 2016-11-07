@@ -42,5 +42,6 @@ describe "Authors page", :type => :feature do
 
     expect(page).to have_text("First name: Alan")
     expect(page).to have_text("Last name: Turing")
+    expect(page).to have_text("Homepage: http://wikipedia.org/Alan_Turing")
   end
 end
