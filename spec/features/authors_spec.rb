@@ -19,7 +19,7 @@ describe "Authors page", :type => :feature do
     expect(page).to have_button("Create Author")
   end
 
-  it 'should have a "Create Author" button' do
+  it 'should save the author' do
     visit new_author_path
 
     fill_in 'author_first_name', with: 'Alan'
@@ -28,5 +28,18 @@ describe "Authors page", :type => :feature do
     submit_form
 
     expect(Author.where(first_name: "Alan", last_name: "Turing")).to exist
+  end
+
+  it 'should display author details' do
+    visit new_author_path
+
+    fill_in 'author_first_name', with: 'Alan'
+    fill_in 'author_last_name', with: 'Turing'
+    fill_in 'author_homepage', with: 'http://wikipedia.org/Alan_Turing'
+    submit_form
+
+    expect(alan = Author.where(first_name: "Alan", last_name: "Turing")).to exist
+
+    expect(page).to have_text("First name: Alan")
   end
 end
