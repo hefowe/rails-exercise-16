@@ -17,8 +17,8 @@ describe Author, :type => :feature do
   end
 
   it 'should not validate without last name' do
-    alan = create(:author)
-    alan.last_name = nil
-    expect(alan).to_not be_valid
+    author = create(:author)
+    author.last_name = nil
+    expect(author).to_not be_valid
   end
 end
