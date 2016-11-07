@@ -87,6 +87,7 @@ describe PapersController, :type => :feature do
 
     visit papers_path
     expect(page).to have_css("a", :text => "Destroy")
+    click_link("Destroy")
   end
 
 end
