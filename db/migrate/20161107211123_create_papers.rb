@@ -3,7 +3,7 @@ class CreatePapers < ActiveRecord::Migration
     create_table :papers do |t|
       t.string :title
       t.string :venue
-      t.string :year
+      t.integer :year
 
       t.timestamps null: false
     end
