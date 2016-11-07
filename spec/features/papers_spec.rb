@@ -16,4 +16,10 @@ describe Paper, :type => :feature do
     expect(paper).to_not be_valid
   end
 
+  it 'should not validate without venue' do
+    paper = create(:paper)
+    paper.venue = nil
+    expect(paper).to_not be_valid
+  end
+
 end
