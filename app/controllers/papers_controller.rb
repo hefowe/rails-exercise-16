@@ -8,13 +8,17 @@ class PapersController < ApplicationController
   end
 
   def new
+    @paper = Paper.new
   end
 
   def create
     @paper = Paper.new(paper_params)
 
-    @paper.save
-    redirect_to @paper
+    if @paper.save
+      redirect_to @paper
+    else
+      render 'new'
+    end
   end
 
   private
