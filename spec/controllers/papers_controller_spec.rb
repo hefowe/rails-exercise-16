@@ -28,4 +28,9 @@ describe PapersController, :type => :feature do
     expect(page).to have_text("Year: 1950")
   end
 
+  it 'should render index route' do
+    visit papers_path
+    expect(page).to have_text("Listing papers")
+  end
+
 end
