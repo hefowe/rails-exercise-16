@@ -38,4 +38,11 @@ describe PapersController, :type => :feature do
     expect(page).to have_css("a", :text => "Add paper")
   end
 
+  it 'should link to paper page on the index route' do
+    create(:paper)
+
+    visit papers_path
+    expect(page).to have_css("a", :text => "Show")
+  end
+
 end
