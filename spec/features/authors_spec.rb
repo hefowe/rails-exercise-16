@@ -49,4 +49,9 @@ describe "Authors page", :type => :feature do
     visit authors_path
     expect(page).to have_text("Listing authors")
   end
+
+  it 'should link to the new author page on the index route' do
+    visit authors_path
+    expect(page).to have_css("a", :text => "Add author")
+  end
 end
