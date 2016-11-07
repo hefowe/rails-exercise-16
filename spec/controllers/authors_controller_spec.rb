@@ -31,9 +31,9 @@ describe AuthorsController, :type => :feature do
   end
 
   it 'should display author details' do
-    create(:author)
+    author = create(:author)
 
-    visit authors_path + "/1"
+    visit authors_path + "/" + author.id.to_s
 
     expect(page).to have_text("First name: Alan")
     expect(page).to have_text("Last name: Turing")
@@ -69,17 +69,17 @@ describe AuthorsController, :type => :feature do
   end
 
   it 'should render edit route' do
-    create(:author)
+    author = create(:author)
 
-    visit edit_author_path(id: "1")
+    visit edit_author_path(id: author.id)
 
     expect(page).to have_text("Editing author")
   end
 
   it 'should save changes on edit author page' do
-    create(:author)
+    author = create(:author)
 
-    visit edit_author_path(id: "1")
+    visit edit_author_path(id: author.id)
 
     fill_in 'author_first_name', with: 'Alan Mathison'
     submit_form
