@@ -19,9 +19,9 @@ describe PapersController, :type => :feature do
   end
 
   it 'should display paper details' do
-    create(:paper)
+    paper = create(:paper)
 
-    visit papers_path + "/1"
+    visit papers_path + "/" + paper.id.to_s
 
     expect(page).to have_text("Title: COMPUTING MACHINERY AND INTELLIGENCE")
     expect(page).to have_text("Venue: Mind 49: 433-460")
@@ -43,6 +43,17 @@ describe PapersController, :type => :feature do
 
     visit papers_path
     expect(page).to have_css("a", :text => "Show")
+  end
+
+  it 'should show validation errors' do
+    visit new_paper_path
+
+    fill_in 'paper_title', with: ''
+    fill_in 'paper_venue', with: 'Mind 49: 433-460'
+    fill_in 'paper_year', with: '1950'
+    submit_form
+
+    expect(page).to have_text("Title can't be blank")
   end
 
 end
