@@ -117,4 +117,19 @@ describe PapersController, :type => :feature do
     expect(page).to have_select("Author 1", :selected => "Alan Turing")
   end
 
+  it 'should save changes to the author list' do
+    paper = create(:paper)
+
+    author = Author.create!(:first_name => "Peter", :last_name => "Plagiarist", :homepage => "http://wikipedia.org/alan_turing")
+
+    visit edit_paper_path(id: paper.id)
+
+    select 'Peter Plagiarist', from: "paper_author_id_1"
+    submit_form
+
+    paperRec = Paper.where(id: 1)[0]
+
+    expect(paperRec.authors).to include author
+  end
+
 end
