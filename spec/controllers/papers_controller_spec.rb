@@ -90,4 +90,11 @@ describe PapersController, :type => :feature do
     click_link("Destroy")
   end
 
+  it 'should list the authors' do
+    paper = create(:paper)
+
+    visit papers_path + "/" + paper.id.to_s
+    expect(page).to have_text("Alan Turing")
+  end
+
 end
