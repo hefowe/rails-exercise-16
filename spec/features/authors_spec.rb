@@ -21,4 +21,11 @@ describe Author, :type => :feature do
     author.last_name = nil
     expect(author).to_not be_valid
   end
+
+  it 'should have and belong to many papers' do
+    author = create(:author)
+
+    expect(author.papers).to eq []
+  end
+
 end
