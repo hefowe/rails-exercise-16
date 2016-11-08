@@ -132,4 +132,12 @@ describe PapersController, :type => :feature do
     expect(paperRec.authors).to include author
   end
 
+  it 'should allow to filter by year' do
+    create(:paper, :year => 1950)
+    create(:paper, :year => 1968)
+
+    visit papers_path + "/?year=1986"
+    expect(page).to_not have_text("1968")
+  end
+
 end
