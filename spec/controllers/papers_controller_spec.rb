@@ -109,4 +109,12 @@ describe PapersController, :type => :feature do
     expect(page).to have_field("Author 5")
   end
 
+  it 'should pre-select the actual authors in the drop downs' do
+    paper = create(:paper)
+
+    visit edit_paper_path(id: paper.id)
+
+    expect(page).to have_select("Author 1", :selected => "Alan Turing")
+  end
+
 end
