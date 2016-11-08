@@ -1,13 +1,9 @@
 class Author < ActiveRecord::Base
-  attr_accessor :papers
+  has_and_belongs_to_many :papers
   validates :last_name, presence: true
 
   def name
     first_name + ' ' + last_name
-  end
-
-  after_initialize do |author|
-    author.papers = []
   end
 
 end

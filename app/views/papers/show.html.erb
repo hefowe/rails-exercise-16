@@ -12,3 +12,7 @@
   Year:
   <%= @paper.year %>
 </p>
+
+<% @paper.authors.each do |author| %>
+    Name: <%= author.name %><br>
+<% end %>
